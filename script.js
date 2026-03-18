@@ -1,4 +1,31 @@
-// ─── FADE-UP ON SCROLL ───────────────────────────────────
+// ─── LIGHTBOX ─────────────────────────────────────────────
+const lightboxOverlay = document.getElementById('lightboxOverlay');
+const lightboxImg     = document.getElementById('lightboxImg');
+const lightboxTitle   = document.getElementById('lightboxTitle');
+const lightboxSub     = document.getElementById('lightboxSub');
+
+function openLightbox(src, title, sub) {
+  lightboxImg.src = src;
+  lightboxTitle.textContent = title;
+  lightboxSub.textContent = sub;
+  lightboxOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden'; // prevent background scroll
+}
+
+function closeLightbox() {
+  lightboxOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+  // Clear src after animation
+  setTimeout(() => { lightboxImg.src = ''; }, 300);
+}
+
+// Close with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('visible');

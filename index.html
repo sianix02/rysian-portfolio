@@ -6,13 +6,13 @@
   <title>Rysian Denver Bulala — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" type="image/png" href="img/logo.svg">
+  <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo"><img src="img/logo-no-bg.svg" alt="logo"> Sianix </div>
+    <div class="nav-logo"><img src="img/logo-no-bg.svg" alt="logo.png" srcset="">Sianix</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -146,34 +146,96 @@
       <div class="section-label fade-up">Credentials</div>
       <h2 class="section-title fade-up">Certifications</h2>
       <div class="title-bar fade-up"></div>
-      <div class="cert-list">
-        <div class="cert-item fade-up">
-          <div class="cert-badge">🏅</div>
-          <div class="cert-info">
-            <h4>Student Government Leadership Training</h4>
-            <p>Sibonga Community College</p>
+      <div class="cert-grid">
+
+        <div class="cert-card fade-up" onclick="openLightbox('cert/it_cert.jpg', 'BSIT Week Certificate of Appreciation 2024', 'BSIT Faculty · Sibonga Community College ')">
+          <div class="cert-thumb">
+            <img src="cert/it_cert.jpg" alt="Certificate 2024" onerror="this.parentElement.classList.add('no-img')"/>
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍</span>
+              <span>Click to View</span>
+            </div>
           </div>
-          <div class="cert-year">2024</div>
-        </div>
-        <div class="cert-item fade-up">
-          <div class="cert-badge">🏅</div>
-          <div class="cert-info">
-            <h4>Student Government Leadership Training</h4>
-            <p>Sibonga Community College</p>
+          <div class="cert-card-body">
+            <div class="cert-badge-icon">🏅</div>
+            <div class="cert-card-info">
+              <h4>BSIT Week Certificate of Appreciation 2024</h4>
+              <p>BSIT Faculty · Sibonga Community College</p>
+            </div>
+            <div class="cert-year">2024</div>
           </div>
-          <div class="cert-year">2025</div>
         </div>
-        <div class="cert-item fade-up">
-          <div class="cert-badge">🏅</div>
-          <div class="cert-info">
-            <h4>Student Government Leadership Training</h4>
-            <p>Sibonga Community College</p>
+
+        <div class="cert-card fade-up" onclick="openLightbox('cert/cert_2024.jpg', 'Student Government Leadership Training 2024', 'Sibonga Community College · 2024')">
+          <div class="cert-thumb">
+            <img src="cert/cert_2024.jpg" alt="Certificate 2024" onerror="this.parentElement.classList.add('no-img')"/>
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍</span>
+              <span>Click to View</span>
+            </div>
           </div>
-          <div class="cert-year">2026</div>
+          <div class="cert-card-body">
+            <div class="cert-badge-icon">🏅</div>
+            <div class="cert-card-info">
+              <h4>Student Government Leadership Training</h4>
+              <p>Sibonga Community College</p>
+            </div>
+            <div class="cert-year">2024</div>
+          </div>
         </div>
+
+
+        <div class="cert-card fade-up" onclick="openLightbox('cert/cert_2025.jpg', 'Student Government Leadership Training 2025', 'Sibonga Community College · 2025')">
+          <div class="cert-thumb">
+            <img src="cert/cert_2025.jpg" alt="Certificate 2025" onerror="this.parentElement.classList.add('no-img')"/>
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍</span>
+              <span>Click to View</span>
+            </div>
+          </div>
+          <div class="cert-card-body">
+            <div class="cert-badge-icon">🏅</div>
+            <div class="cert-card-info">
+              <h4>Student Government Leadership Training</h4>
+              <p>Sibonga Community College</p>
+            </div>
+            <div class="cert-year">2025</div>
+          </div>
+        </div>
+
+        <div class="cert-card fade-up" onclick="openLightbox('cert/cert_2026.jpg', 'Student Government Leadership Training 2026', 'Sibonga Community College · 2026')">
+          <div class="cert-thumb">
+            <img src="cert/cert_2026.jpg" alt="Certificate 2026" onerror="this.parentElement.classList.add('no-img')"/>
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍</span>
+              <span>Click to View</span>
+            </div>
+          </div>
+          <div class="cert-card-body">
+            <div class="cert-badge-icon">🏅</div>
+            <div class="cert-card-info">
+              <h4>Student Government Leadership Training</h4>
+              <p>Sibonga Community College</p>
+            </div>
+            <div class="cert-year">2026</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+    <div class="lightbox-box" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="Certificate"/>
+      <div class="lightbox-caption">
+        <strong id="lightboxTitle"></strong>
+        <span id="lightboxSub"></span>
+      </div>
+    </div>
+  </div>
 
   <!-- PROJECTS -->
   <section id="projects">
@@ -261,6 +323,28 @@
                 <span class="project-tag">Warmer Design</span>
                 <h3>SCC — SG Warmer Front View</h3>
                 <p>Full sublimation warmer design for SCC Intramurals 2026 Student Government.</p>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-img-wrap">
+                <img src="img/sg_birthday.png" alt="SG Birthday Poster"/>
+              </div>
+              <div class="project-body">
+                <span class="project-tag">Birthday Poster</span>
+                <h3>SCC — SG Birthday Poster</h3>
+                <p>Creative birthday poster design for Student Government A.Y. 2026.</p>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-img-wrap">
+                <img src="img/medical alliance.png" alt="Medical Alliance Polo T shirt"/>
+              </div>
+              <div class="project-body">
+                <span class="project-tag">Polo T-shirt</span>
+                <h3>SCC — Medical Alliance Polo T-shirt</h3>
+                <p>Full sublimation polo t-shirt design for Medical Alliance.</p>
               </div>
             </div>
 
